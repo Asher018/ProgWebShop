@@ -1,12 +1,13 @@
+
 .cardcontainer {
-    height: fit-content;
+    height: max-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin-top: 100px;
 }
 .card {
+    background-color: white;
     position: relative;
     height: var(--card-height);
     aspect-ratio: 6/12;

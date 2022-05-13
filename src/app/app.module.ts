@@ -11,6 +11,8 @@ import { DescriptionPipePipe } from './shared/pipes/description-pipe.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardContainerComponent } from './components/card-container/card-container.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { CardContainerComponent } from './components/card-container/card-contain
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    BrowserModule
+    BrowserModule,
+    NoopAnimationsModule,
+    MatFormFieldModule,
+    MatLabel
   ],
   providers: [],
   bootstrap: [AppComponent]
