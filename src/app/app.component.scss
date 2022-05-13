@@ -1,0 +1,18 @@
+.cardcontainer {
+    height: fit-content;
+    display: flex;
+    gap: 5vmin;
+}
+.card {
+    height: 30vh;
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-left: var(--filter-width) ;
+}
+
+.filter {
+    position: fixed;
+    background-color: red;
+    height: 100vh;
+    width: var(--filter-width);
+}
