@@ -22,7 +22,7 @@ export class FirebaseService {
     const shirtref = ref(storage, 'shirts/shirt.png');
     getDownloadURL(shirtref)
     .then((url) => {
-      const img = document.getElementById("1");
+      const img = document.getElementById("test");
       console.log(url)
       img?.setAttribute('src', url);
     })

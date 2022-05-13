@@ -1,13 +1,15 @@
-
-
 <div class="cardcontainer">
   <div *ngFor="let item of items | async" class="card">
-    <div>{{item.name}}</div>
-    <div>{{item.price}}</div>
-    <img id="{{item.id}}">
+    <img loading="lazy" src="{{item.image[0]}}">
+
+    <div class="content1">
+      <div><strong>{{item.name}} - </strong>{{item.description}}</div>
+    </div>
+
+    <div class="content2">
+      <div>{{item.price}}</div>
+      <button (click)="toCart()">Kosárba</button>
+    </div>
+
   </div>
 </div>
-
-<div (click)="test()">Click me</div>
-
-<img id="test" width="500px" height="500px">

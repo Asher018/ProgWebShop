@@ -17,10 +17,10 @@ export class AppComponent {
 
   ngOnInit():void {
     this.items = this.fbservice.getItems();
-    this.test();
+    this.fbservice.test();
   }
 
-  test():void {
-    this.fbservice.test();
+  toCart():void {
+    
   }
 }
