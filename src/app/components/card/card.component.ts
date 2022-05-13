@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { filter, map, Observable } from 'rxjs';
 import { Item } from 'src/app/shared/models/item.model';
 import { FirebaseService } from 'src/app/shared/services/firebase.service';
 
@@ -8,7 +8,11 @@ import { FirebaseService } from 'src/app/shared/services/firebase.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
+
+
+
 export class CardComponent implements OnInit {
+
 
   items:Observable<Item[]> | undefined;
 
@@ -19,8 +23,8 @@ export class CardComponent implements OnInit {
     this.fbservice.test();
   }
 
-  
   toCart():void {
     console.log("ToCard")
+
   }
 }

@@ -2,12 +2,15 @@
     <div class="searchFilterContainer">
 
         <div class="searchbar">
-
+            yikes
         </div>
 
         <div class="filterAndCardContainer">
             <div class="filter">
-
+                <form [formGroup]="priceForm">
+                    <input formControlName="price">
+                </form>
+                <button (click) = "search()"></button>
             </div>
             <app-card style="width: fit-content;"></app-card>
         </div>
