@@ -7,9 +7,10 @@ import { getDownloadURL, getStorage, ref } from "firebase/storage";
 @Injectable({
   providedIn: 'root'
 })
+
 export class FirebaseService {
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private firestore: AngularFirestore) {}
 
   getItems(): Observable<Item[]> {
     return this.firestore.collection("Items", ref => {

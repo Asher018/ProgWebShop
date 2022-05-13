@@ -9,10 +9,11 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./card-container.component.scss']
 })
 export class CardContainerComponent implements OnInit {
+
   priceForm: FormGroup = new FormGroup({
     price: new FormControl()
   })
-
+  
 
   constructor() { }
 
