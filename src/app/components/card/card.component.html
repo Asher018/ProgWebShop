@@ -1,0 +1,17 @@
+<div class="cardcontainer">
+    <div *ngFor="let item of items | async" class="card">
+      <img loading="lazy" src="{{item.image[0]}}">
+  
+      <div class="content1">
+        <div><strong>{{item.name}} - </strong>{{item.description}}</div>
+      </div>
+  
+      <div class="content2">
+        <div class="content2-sub">
+          <div class="price"><strong>{{item.price | mynumber}}</strong></div>
+          <button (click)="toCart()">Kosárba</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>

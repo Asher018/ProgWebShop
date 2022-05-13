@@ -1,0 +1,66 @@
+.cardcontainer {
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 100px;
+}
+.card {
+    position: relative;
+    height: var(--card-height);
+    aspect-ratio: 6/12;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transition: all 0.16s ease-in-out;
+}
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card .content1 {
+    position: relative;
+    height: 40px;
+    line-height: 20px;
+    width: 90%;
+    margin-left: var(--card-margin);
+    margin-right: var(--card-margin);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.card .content2 {
+    position: relative;
+    height: 86px;
+    width: 90%;
+    margin-left: var(--card-margin);
+    margin-right: var(--card-margin);
+}
+.card .content2 .content2-sub {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: var(--card-margin);
+}
+.card .content2 .content2-sub button {
+    margin-top: var(--card-margin);
+}
+
+.card img {
+    object-fit: contain;
+    height: 300px;
+    width: 100%;
+    user-select: none;
+}
+button {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom:5px;
+    border: none;
+}
+
+.price {
+    color: var(--price-color);
+}
+

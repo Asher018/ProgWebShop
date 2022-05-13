@@ -2,8 +2,13 @@
 :root {
     --filter-width:10vmin;
     --card-height:430px;
-    --card-desc-height: 100px;
     --card-margin:5%;
+    --price-color:rgb(61, 159, 192);
+    --main-color:rgba(61, 159, 192);
+    --main-color-rgba:rgba(61, 159, 192, 0.9);
+
+    //nav
+    --underline-height:1.5px;
 }
 html {
     height: 100%;
@@ -13,4 +18,7 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
+    
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
 }
