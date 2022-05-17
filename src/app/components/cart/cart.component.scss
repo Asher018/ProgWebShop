@@ -1,0 +1,54 @@
+.container {
+    margin-top: 70px;
+}
+
+.cardcontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    min-height: 120px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.card > *:nth-child(1) {
+    height: 20px;
+    width: 20px;
+}
+.card > *:nth-child(2) {
+    height: 120px;
+    aspect-ratio: 1/1;
+}
+.card > *:nth-child(3) {
+
+}
+.card > *:nth-child(4) {
+    margin-left: auto;
+}
+
+img {
+    object-fit: contain;
+}
+
+.card::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    width: 90%;
+    background-color: silver;
+    height: 1px;
+}
+
+
+.test {
+    margin-top: 100px;
+}

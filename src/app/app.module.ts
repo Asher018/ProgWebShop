@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -14,7 +14,21 @@ import { CardContainerComponent } from './components/card-container/card-contain
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from "@angular/material/card";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from "@angular/material/button";
+import { CartComponent } from './components/cart/cart.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/home/home.component';
+import { MatIconModule } from '@angular/material/icon';
+
+const routes:Routes = [
+  {path: 'home', component: HomeComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'cart', component:CartComponent}
+];
 
 @NgModule({
   declarations: [
@@ -23,17 +37,30 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DescriptionPipePipe,
     NavbarComponent,
     CardComponent,
-    CardContainerComponent
+    CardContainerComponent,
+    CartComponent,
+    HomeComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    RouterModule.forRoot(routes),
     AngularFirestoreModule,
     BrowserModule,
     NoopAnimationsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatButtonModule,
+    MatCardModule,
     FormsModule,
-    ReactiveFormsModule
+    MatIconModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ServiceWorkerModule.register("ngsw-worker.js", {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: "registerWhenStable:30000",
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { FirebaseService } from 'src/app/shared/services/firebase.service';
+import { SearchService } from 'src/app/shared/services/search.service';
 
 
 
@@ -15,13 +17,12 @@ export class CardContainerComponent implements OnInit {
   })
   
 
-  constructor() { }
+  constructor(private fbservice: FirebaseService) { }
 
   ngOnInit(): void {
   }
 
   search() : void {
-    console.log(this.priceForm.value.price);
   }
 
 }

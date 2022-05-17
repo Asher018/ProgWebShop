@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item.model';
@@ -10,7 +10,8 @@ import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 export class FirebaseService {
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) {
+  }
 
   getItems(): Observable<Item[]> {
     return this.firestore.collection("Items", ref => {
@@ -24,7 +25,6 @@ export class FirebaseService {
     getDownloadURL(shirtref)
     .then((url) => {
       const img = document.getElementById("test");
-      console.log(url)
       img?.setAttribute('src', url);
     })
     .catch((error) => {

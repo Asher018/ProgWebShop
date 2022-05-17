@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+
+<div class="container" *ngIf="(items$ | async) as items">
+   <ng-container *ngIf="items.length > 0;" class="cardcontainer">
+      <div *ngFor="let item of items" class="card">
+         <button (click)="deleteFromCart(item.id)"></button>
+         <img loading="lazy" src="{{item.image[0]}}">
+         <div>{{item.name}}</div>
+         <strong>
+            <div class="price">{{item.price | mynumber}}</div>
+         </strong>
+      </div>
+   </ng-container>
+</div>
+
+<div class="container" *ngIf="(cartItems$ | async) as items">
+   <ng-container *ngIf="items.length > 0;" class="cardcontainer">
+      <div *ngFor="let item of items" class="card">
+         <div>{{item}}</div>
+      </div>
+   </ng-container>
+</div>
+
+<button class="test" (click)="testButton()">TEST BUTTON</button>
