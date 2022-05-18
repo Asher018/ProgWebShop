@@ -1,18 +1,41 @@
+<head>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
 <div class="cardcontainer">
     <div class="searchFilterContainer">
 
         <div class="searchbar">
-            yikes
+            <div class="searchByType">
+                <div class="header" (click)="expand('types', 'typesIcon')">
+                    <div>Típus</div>
+                    <span class="material-symbols-outlined" id="typesIcon">
+                        expand_more
+                    </span>
+                </div>
+
+                <div class="options" id="types">
+                    <div class="option">
+                        <input type="checkbox" id="polo" name="polo" value="póló">
+                        <div>Póló</div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="filterAndCardContainer">
             <div class="filter">
                 <form [formGroup]="priceForm">
-                    <input formControlName="price">
+                    <div class="inputs">
+                        <input placeholder="0" formControlName="priceMin">
+                        <span> - </span>
+                        <input placeholder="∞" formControlName="priceMax">
+                    </div>
                 </form>
-                <button (click) = "search()"></button>
+                <button (click)="search()">Search</button>
             </div>
-            <app-card style="width: fit-content;"></app-card>
+            <app-card [items$]="items$" style="width: fit-content;"></app-card>
         </div>
 
     </div>

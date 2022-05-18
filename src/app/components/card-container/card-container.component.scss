@@ -1,6 +1,10 @@
+span {
+    user-select: none;
+}
+
 .cardcontainer {
     margin-top: 70px;
-    background-color: green;
+    background-color: rgb(242, 242, 242);
 }
 
 .searchFilterContainer {
@@ -11,10 +15,9 @@
 }
 
 .filterAndCardContainer {
-    background-color: red;
+    width: calc((var(--card-height) / 2 * 4) + var(--card-gap) * 3);
     display: flex;
     flex-direction: column;
-    width: fit-content;
     gap: 16px;
 }
 
@@ -27,5 +30,64 @@
 .searchbar {
     height: 1200px;
     width: 220px;
-    background-color: yellow;
+
+}
+
+input {
+    border: 1px solid silver;
+    border-radius: 2px;
+    outline: none;
+    transition: 0.2s all ease-in-out;
+}
+input:focus {
+    border: 1px solid var(--main-color);
+}
+
+.searchByType {
+    background-color: white;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+.options {
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+.option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 20px;
+    padding: 10px;
+}
+.expand {
+    transition: max-height 0.2s ease-in;
+    max-height: 40px;
+}
+.flip {
+    transform: rotate(180deg);
+}
+
+
+
+
+@media screen and (max-width: 1400px) {
+    .filterAndCardContainer {
+        width: calc((var(--card-height) / 2 * 3) + var(--card-gap) * 2);
+    }
+}
+@media screen and (max-width: 918px) {
+    .filterAndCardContainer {
+        width: calc((var(--card-height) / 2 * 2) + var(--card-gap) * 1);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .searchbar {
+        display: none;
+    }
 }

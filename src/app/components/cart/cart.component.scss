@@ -10,26 +10,20 @@
 .card {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
     position: relative;
     padding-top: 5px;
     padding-bottom: 5px;
-    min-height: 120px;
+    height: 120px;
     margin-left: 5%;
     margin-right: 5%;
 }
 
-.card > *:nth-child(1) {
-    height: 20px;
-    width: 20px;
-}
+
 .card > *:nth-child(2) {
     height: 120px;
     aspect-ratio: 1/1;
-}
-.card > *:nth-child(3) {
-
 }
 .card > *:nth-child(4) {
     margin-left: auto;
@@ -48,7 +42,20 @@ img {
     height: 1px;
 }
 
-
 .test {
     margin-top: 100px;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" -25, "opsz" 48;
+}
+
+.delete {
+    aspect-ratio: 1/1;
+    padding: 16px;
+    font-size: 30px;
+    transition: all 0.2s ease-in-out;
+}
+.delete:hover {
+    color: red;
 }

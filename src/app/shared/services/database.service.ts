@@ -10,7 +10,7 @@ export class DatabaseService {
 
   private readonly update$ = new Subject<void>();
   private db$!: Observable<IDBDatabase>;
-  public items$!: Observable<number[]>;
+  public items$!: Observable<Item[]>;
 
   constructor(private update: SwUpdate) {
     //this.checkUpdate();
@@ -18,14 +18,14 @@ export class DatabaseService {
     this.updatingItems();
    }
 
-   public async addItem(id:number): Promise<void> {
+   public async addItem(item: Item): Promise<void> {
     this.db$
       .pipe(
         switchMap(
           (db) =>
             new Observable((observer) => {
               let transaction = db.transaction("items", "readwrite");
-              transaction.objectStore("items").add({ key:id,value:id});
+              transaction.objectStore("items").add(item);
               transaction.oncomplete = () => {
                 //transaction = null;
                 this.update$.next();
@@ -38,15 +38,15 @@ export class DatabaseService {
       .subscribe();
   }
 
-  public deleteItem(id:number) {
-    if(id){
+  public deleteItem(item:Item) {
+    if(item){
     this.db$
       .pipe(
         switchMap(
           (db) =>
             new Observable((observer) => {
               let transaction = db.transaction("items", "readwrite");
-              transaction.objectStore("items").delete(id);
+              transaction.objectStore("items").delete(item.id);
               transaction.oncomplete = () => {
                // transaction = null;
                 this.update$.next();
@@ -88,12 +88,12 @@ export class DatabaseService {
         this.db$.pipe(
           switchMap(
             (db) =>
-              new Observable<number[]>((observer) => {
+              new Observable<Item[]>((observer) => {
                 let transaction = db.transaction("items");
                 const request = transaction.objectStore("items").getAll();
                 transaction.oncomplete = () => {
                   //transaction = null;
-                  observer.next(request.result as number[]);
+                  observer.next(request.result as Item[]);
                   observer.complete();
                 };
               })
@@ -115,7 +115,7 @@ export class DatabaseService {
   }
 
   private createDb(db: IDBDatabase): void {
-    db.createObjectStore("items", { keyPath: "key", autoIncrement:true });
+    db.createObjectStore("items", { keyPath: "id" });
     console.log("create", db);
   }
 

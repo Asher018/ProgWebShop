@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { filter, last, map, Observable, Subscriber } from 'rxjs';
 import { Item } from 'src/app/shared/models/item.model';
 import { DatabaseService } from 'src/app/shared/services/database.service';
@@ -16,22 +16,18 @@ import { SearchService } from 'src/app/shared/services/search.service';
 export class CardComponent implements OnInit {
 
   
-  items!:Observable<Item[]>;
+  @Input() items$!:Observable<Item[]>;
 
   constructor(private fbservice:FirebaseService, private dbService: DatabaseService) {
   }
 
   ngOnInit(): void {
-    this.items = this.fbservice.getItems().pipe(
-      map(items => items.filter(item => item.price > 0))
-    );
 
-    this.fbservice.test();
   }
 
-  async toCart(id:number): Promise<void> {
-    console.log(id)
-    this.dbService.addItem(id);
+  async toCart(item:Item): Promise<void> {
+    console.log(item)
+    this.dbService.addItem(item);
     console.log("ToCard");
   }
 }

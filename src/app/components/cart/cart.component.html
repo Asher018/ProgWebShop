@@ -1,9 +1,14 @@
+<head>
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
 <app-navbar></app-navbar>
 
-<div class="container" *ngIf="(items$ | async) as items">
+<div class="container" *ngIf="(cartItems$ | async) as items">
    <ng-container *ngIf="items.length > 0;" class="cardcontainer">
       <div *ngFor="let item of items" class="card">
-         <button (click)="deleteFromCart(item.id)"></button>
+         <span class="material-symbols-outlined delete" (click)="deleteFromCart(item)">close</span>
          <img loading="lazy" src="{{item.image[0]}}">
          <div>{{item.name}}</div>
          <strong>
@@ -13,12 +18,5 @@
    </ng-container>
 </div>
 
-<div class="container" *ngIf="(cartItems$ | async) as items">
-   <ng-container *ngIf="items.length > 0;" class="cardcontainer">
-      <div *ngFor="let item of items" class="card">
-         <div>{{item}}</div>
-      </div>
-   </ng-container>
-</div>
 
 <button class="test" (click)="testButton()">TEST BUTTON</button>

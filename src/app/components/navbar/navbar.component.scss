@@ -103,7 +103,7 @@
 
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 400px) {
     .topnav .menubuttons {
         float: none;
         text-align: left;
@@ -115,11 +115,9 @@
         top: 0;
         right: 0;
     }
-}
 
-@media screen and (max-width: 800px) {
     .topnav.responsive {
-        height: 420px;
+        height: 140px;
         background-color: var(--main-color-rgba);
     }
     .topnav.responsive .menubuttons {

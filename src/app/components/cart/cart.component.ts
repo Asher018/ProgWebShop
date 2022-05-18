@@ -11,54 +11,28 @@ import { FirebaseService } from 'src/app/shared/services/firebase.service';
 })
 export class CartComponent implements OnInit {
 
-  public cartItems$!: Observable<number[]>;
+  public cartItems$!: Observable<Item[]>;
   items$!: Observable<Item[]>;
-  cartItems!: number[];
 
   constructor(private dbService: DatabaseService, private fbservice: FirebaseService) { }
 
 
   ngOnInit(): void {
 
-
-    
     this.cartItems$ = this.dbService.items$;
-
-    this.cartItems$.subscribe(citems => {
-      this.cartItems = [];
-      console.log("subscribe: ",this.cartItems)
-      for (let i = 0; i < citems.length; i++) {
-        console.log("pushing")
-        this.cartItems.push(Object.values(citems[i])[1])
-      }
-    })
-
-    this.items$ = this.getItems();
-
+    console.log(this.cartItems$)
   }
 
-  ngOnDestroy() : void {
-  }
 
-  deleteFromCart(id:number) : void {
-    this.dbService.deleteItem(id);
-    console.log("delete from cart: ", this.cartItems);
+
+  deleteFromCart(item:Item) : void {
+    this.dbService.deleteItem(item);
   }
 
   testButton() : void {
-    console.log("test button: ",this.cartItems)
+    console.log("test button: ",this.cartItems$)
   }
 
-  getItems() : Observable<Item[]> {
-    return this.fbservice.getItems().pipe(map(items => items.filter(item => {
-      if(this.cartItems.includes(item.id)) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    })))
-  }
 
 
 }

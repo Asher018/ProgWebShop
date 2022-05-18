@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, CollectionReference, Query } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item.model';
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
@@ -16,6 +16,27 @@ export class FirebaseService {
   getItems(): Observable<Item[]> {
     return this.firestore.collection("Items", ref => {
       return ref;
+    }).valueChanges() as Observable<Item[]>;
+  }
+
+  getItemsQuery(minPrice:number, maxPrice:number): Observable<Item[]> {
+    return this.firestore.collection("Items", ref => {
+      let query: CollectionReference | Query = ref;
+      console.log(minPrice, maxPrice)
+      if(minPrice > 0 && maxPrice > 0) {
+        console.log("itt ni")
+        query = query.where('price','<=', maxPrice);
+        query = query.where('price', '>=', minPrice);
+      }
+      else if(maxPrice > 0) {
+        query = query.where('price','<=', maxPrice);
+
+      }
+      else if(minPrice > 0){
+        query = query.where('price', '>=', minPrice);
+      }
+
+      return query;
     }).valueChanges() as Observable<Item[]>;
   }
 

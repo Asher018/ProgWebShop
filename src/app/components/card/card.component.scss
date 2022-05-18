@@ -4,7 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: var(--card-gap);
 }
 .card {
     background-color: white;
@@ -59,9 +59,24 @@ button {
     padding-top: 5px;
     padding-bottom:5px;
     border: none;
+    background-color: rgb(61, 159, 192);
+    color: white;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: rgb(38, 114, 140);
+}
+
+button:active {
+    transition: none;
+    background-color: rgb(16, 49, 60);
 }
 
 .price {
     color: var(--price-color);
 }
+
+
+
 
