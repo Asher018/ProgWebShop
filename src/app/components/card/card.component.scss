@@ -10,7 +10,7 @@
     background-color: white;
     position: relative;
     height: var(--card-height);
-    aspect-ratio: 6/12;
+    width: var(--card-width);
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: all 0.16s ease-in-out;
 }
@@ -77,6 +77,15 @@ button:active {
     color: var(--price-color);
 }
 
+@media screen and (max-width: 510px) {
+    .card {
+        width: 40vw;
+        height: fit-content;
+    }
+    .card img {
+        height: 40vw;
+    }
+}
 
 
 
