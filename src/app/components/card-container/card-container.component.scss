@@ -1,5 +1,13 @@
+body {
+    width: 100%;
+    height: 100%;
+}
+
 span {
     user-select: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .cardcontainer {
@@ -23,14 +31,17 @@ span {
 
 .filter {
     width: 100%;
-    height: 150px;
     background-color: white;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .searchbar {
     height: 1200px;
     width: 220px;
-
 }
 
 input {
@@ -38,6 +49,14 @@ input {
     border-radius: 2px;
     outline: none;
     transition: 0.2s all ease-in-out;
+    width: 40%;
+    margin: 2vw;
+    height: 20px;
+}
+
+.inputs {
+    display: flex;
+    justify-content: center;
 }
 input:focus {
     border: 1px solid var(--main-color);
@@ -71,6 +90,15 @@ input:focus {
     transform: rotate(180deg);
 }
 
+.filter button {
+    padding-top: 5px;
+    padding-bottom:5px;
+    border: none;
+    background-color: rgb(61, 159, 192);
+    color: white;
+    margin-bottom:2vw;
+}
+
 
 
 
@@ -87,6 +115,40 @@ input:focus {
 
 @media screen and (max-width: 700px) {
     .searchbar {
-        display: none;
+        position: relative;
+        display: block;
+        height: fit-content;
+        width: 100%;
     }
+
+    .searchFilterContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .filterAndCardContainer {
+        width: 100%;
+    }
+    
+    input {
+        width: 40vw;
+    }
+    .inputs {
+        display: flex;
+        justify-content: center;
+    }
+    .filter {
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .filter button {
+        width: 30vw;
+        font-size: 3vw;
+    }
+
 }

@@ -13,7 +13,7 @@ export class DatabaseService {
   public items$!: Observable<Item[]>;
 
   constructor(private update: SwUpdate) {
-    //this.checkUpdate();
+    this.checkUpdate();
     this.init();
     this.updatingItems();
    }
@@ -27,7 +27,7 @@ export class DatabaseService {
               let transaction = db.transaction("items", "readwrite");
               transaction.objectStore("items").add(item);
               transaction.oncomplete = () => {
-                //transaction = null;
+                transaction = null;
                 this.update$.next();
                 observer.complete();
               };
@@ -48,7 +48,7 @@ export class DatabaseService {
               let transaction = db.transaction("items", "readwrite");
               transaction.objectStore("items").delete(item.id);
               transaction.oncomplete = () => {
-               // transaction = null;
+                transaction = null;
                 this.update$.next();
                 observer.complete();
               };
@@ -68,9 +68,8 @@ export class DatabaseService {
             new Observable((observer) => {
               let transaction = db.transaction("items", "readwrite");
               transaction.objectStore("items").clear();
-
               transaction.oncomplete = () => {
-                //transaction = null;
+                transaction = null;
                 this.update$.next();
                 observer.complete();
               };
@@ -92,7 +91,7 @@ export class DatabaseService {
                 let transaction = db.transaction("items");
                 const request = transaction.objectStore("items").getAll();
                 transaction.oncomplete = () => {
-                  //transaction = null;
+                  transaction = null;
                   observer.next(request.result as Item[]);
                   observer.complete();
                 };
@@ -105,7 +104,7 @@ export class DatabaseService {
 
   private init(): void {
     this.db$ = new Observable<IDBDatabase>((observer) => {
-      const openRequest = indexedDB.open("Mismas");
+      const openRequest = indexedDB.open("cartItems");
       openRequest.onupgradeneeded = () => this.createDb(openRequest.result);
       openRequest.onsuccess = () => {
         observer.next(openRequest.result);

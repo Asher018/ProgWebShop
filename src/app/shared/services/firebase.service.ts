@@ -1,8 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
-import { AngularFirestore, CollectionReference, Query } from '@angular/fire/compat/firestore';
+import { AngularFirestore, CollectionReference, PERSISTENCE_SETTINGS, Query } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item.model';
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
+import { enableIndexedDbPersistence } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'

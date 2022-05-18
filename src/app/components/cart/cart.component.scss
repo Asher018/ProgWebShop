@@ -37,9 +37,21 @@ img {
     position: absolute;
     content: "";
     top: 0;
-    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     background-color: silver;
-    height: 1px;
+    height: 0.5px;
+}
+.card:last-child::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    background-color: silver;
+    height: 0.5px;
 }
 
 .test {
@@ -56,6 +68,20 @@ img {
     font-size: 30px;
     transition: all 0.2s ease-in-out;
 }
-.delete:hover {
+.delete:hover, .delete:active, .delete:focus {
     color: red;
+}
+
+
+@media screen and (max-width:500px) {
+    .card {
+        height: 20vw;
+    }
+    .card > *:nth-child(2) {
+        height: 20vw;
+    }
+    .delete {
+        font-size: 8vw;
+        padding: 2vw;
+    }
 }

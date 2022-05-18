@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, ENABLE_PERSISTENCE } from '@angular/fire/compat/firestore';
+import { enableIndexedDbPersistence } from "firebase/firestore";
 import * as firebase from 'firebase/compat';
 import { Observable, Subject } from 'rxjs';
 import { startWith, switchMap } from "rxjs/operators";
@@ -19,7 +20,8 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.firestore.persistenceEnabled$.subscribe()  
-
+    enableIndexedDbPersistence
+    ENABLE_PERSISTENCE
   }
 
 

@@ -26,6 +26,7 @@
 
         <div class="filterAndCardContainer">
             <div class="filter">
+                <div style="margin-top:2vw;">Ár szűrés</div>
                 <form [formGroup]="priceForm">
                     <div class="inputs">
                         <input placeholder="0" formControlName="priceMin">
@@ -33,7 +34,7 @@
                         <input placeholder="∞" formControlName="priceMax">
                     </div>
                 </form>
-                <button (click)="search()">Search</button>
+                <button (click)="search()">Keresés</button>
             </div>
             <app-card [items$]="items$" style="width: fit-content;"></app-card>
         </div>
