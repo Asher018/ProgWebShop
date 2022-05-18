@@ -48,4 +48,18 @@ export class CardContainerComponent implements OnInit {
     icon?.classList.toggle("flip")
   }
 
+  checked(id: string):void {
+    let checkbox = document.getElementById(id) as HTMLInputElement;
+    console.log(checkbox.value)
+    if(checkbox.checked) {
+      console.log("checked")
+      this.items$ = this.items$.pipe(map(item => item.filter(item => 
+        item.name === checkbox.value
+      )))
+    }
+    else if(!checkbox.checked) {
+      this.items$ = this.fbservice.getItems()
+    }
+  }
+
 }
