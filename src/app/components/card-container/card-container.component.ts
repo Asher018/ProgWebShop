@@ -3,8 +3,6 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { map, Observable, Subject } from 'rxjs';
 import { Item } from 'src/app/shared/models/item.model';
 import { FirebaseService } from 'src/app/shared/services/firebase.service';
-import { SearchService } from 'src/app/shared/services/search.service';
-import { CardComponent } from '../card/card.component';
 
 
 

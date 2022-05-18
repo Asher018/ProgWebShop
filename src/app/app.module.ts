@@ -23,6 +23,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { MatIconModule } from '@angular/material/icon';
+import { enableIndexedDbPersistence } from 'firebase/firestore';
 
 const routes:Routes = [
   {path: 'home', component: HomeComponent},
@@ -44,7 +45,7 @@ const routes:Routes = [
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     RouterModule.forRoot(routes),
-    AngularFirestoreModule,
+    AngularFirestoreModule.enablePersistence(),
     BrowserModule,
     NoopAnimationsModule,
     MatFormFieldModule,
