@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { filter, last, map, Observable, Subscriber } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Item } from 'src/app/shared/models/item.model';
 import { DatabaseService } from 'src/app/shared/services/database.service';
-import { FirebaseService } from 'src/app/shared/services/firebase.service';
-import { SearchService } from 'src/app/shared/services/search.service';
+
 
 @Component({
   selector: 'app-card',
@@ -18,7 +17,7 @@ export class CardComponent implements OnInit {
   
   @Input() items$!:Observable<Item[]>;
 
-  constructor(private fbservice:FirebaseService, private dbService: DatabaseService) {
+  constructor(private dbService: DatabaseService) {
   }
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import { filter, first, map, mergeMap, Observable, Subject, Subscriber, Subscription, withLatestFrom } from 'rxjs';
 import { Item } from 'src/app/shared/models/item.model';
 import { DatabaseService } from 'src/app/shared/services/database.service';
@@ -30,7 +31,23 @@ export class CartComponent implements OnInit {
   }
 
   testButton() : void {
-    console.log("test button: ",this.cartItems$)
+    const storage = getStorage();
+    getDownloadURL(ref(storage, 'shirts/ing.jpg'))
+      .then((url) => {
+        // `url` is the download URL for 'images/stars.jpg'
+
+        // This can be downloaded directly:
+        const xhr = new XMLHttpRequest();
+        xhr.responseType = 'blob';
+        xhr.onload = (event) => {
+          const blob = xhr.response;
+        };
+        xhr.open('GET', url);
+        xhr.send();
+      })
+      .catch((error) => {
+        console.log("WHAT IS THIS ERROR LOL")
+      });
   }
 
 

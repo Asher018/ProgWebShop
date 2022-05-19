@@ -41,16 +41,7 @@ export class FirebaseService {
   }
 
   test() {
-    const storage = getStorage();
-    const shirtref = ref(storage, 'shirts/shirt.png');
-    getDownloadURL(shirtref)
-      .then((url) => {
-        const img = document.getElementById("test");
-        img?.setAttribute('src', url);
-      })
-      .catch((error) => {
-        console.log(error)
-      })
   }
 
+  
 }
