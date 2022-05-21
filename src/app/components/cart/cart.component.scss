@@ -67,6 +67,7 @@ img {
     padding: 16px;
     font-size: 30px;
     transition: all 0.2s ease-in-out;
+    user-select: none;
 }
 .delete:hover, .delete:active, .delete:focus {
     color: red;
