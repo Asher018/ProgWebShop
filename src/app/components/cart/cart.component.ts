@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
-import { filter, first, map, mergeMap, Observable, Subject, Subscriber, Subscription, withLatestFrom } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Item } from 'src/app/shared/models/item.model';
 import { DatabaseService } from 'src/app/shared/services/database.service';
 import { FirebaseService } from 'src/app/shared/services/firebase.service';
