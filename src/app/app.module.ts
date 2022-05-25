@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule} from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MynumberPipe } from './shared/pipes/mynumber.pipe';
-import { DescriptionPipePipe } from './shared/pipes/description-pipe.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CardComponent } from './components/card/card.component';
 import { CardContainerComponent } from './components/card-container/card-container.component';
@@ -27,14 +26,14 @@ import { MatIconModule } from '@angular/material/icon';
 const routes:Routes = [
   {path: 'home', component: HomeComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'cart', component:CartComponent}
+  {path: 'cart', component:CartComponent},
+  {path: '**', redirectTo: '/home'}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     MynumberPipe,
-    DescriptionPipePipe,
     NavbarComponent,
     CardComponent,
     CardContainerComponent,

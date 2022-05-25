@@ -6,7 +6,7 @@
 <app-navbar></app-navbar>
 
 <div class="container" *ngIf="(cartItems$ | async) as items">
-   <ng-container *ngIf="items.length > 0;" class="cardcontainer">
+   <ng-container *ngIf="items.length > 0; else noItems" class="cardcontainer">
       <div *ngFor="let item of items" class="card">
          <span class="material-symbols-outlined delete" (click)="deleteFromCart(item)">close</span>
          <img loading="lazy" src="{{item.image[0]}}">
@@ -16,4 +16,9 @@
          </strong>
       </div>
    </ng-container>
+
 </div>
+
+<ng-template #noItems class="ememptyCartContainer">
+   <div class="emptyCart">A kosarad üres</div>
+</ng-template>

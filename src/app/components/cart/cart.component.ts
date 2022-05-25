@@ -19,37 +19,12 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     this.cartItems$ = this.dbService.items$;
-    console.log(this.cartItems$)
   }
-
 
 
   deleteFromCart(item:Item) : void {
     this.dbService.deleteItem(item);
   }
-
-  testButton() : void {
-    const storage = getStorage();
-    getDownloadURL(ref(storage, 'shirts/ing.jpg'))
-      .then((url) => {
-        // `url` is the download URL for 'images/stars.jpg'
-
-        // This can be downloaded directly:
-        const xhr = new XMLHttpRequest();
-        xhr.responseType = 'blob';
-        xhr.onload = (event) => {
-          const blob = xhr.response;
-        };
-        xhr.open('GET', url);
-        xhr.send();
-      })
-      .catch((error) => {
-        console.log("WHAT IS THIS ERROR LOL")
-      });
-  }
-
-
 
 }

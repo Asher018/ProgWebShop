@@ -1,5 +1,5 @@
 .topnav {
-    //overflow:hidden;
+    overflow:hidden;
     height: 70px;
     background-color: var(--main-color);
     transition: height 0.6s ease-in-out, background 0.6s ease-in-out,opacity 0.6s ease-in-out;
@@ -43,28 +43,6 @@
 .button {
     position: relative;
 }
-
-.ddmenu {
-    background-color: var(--main-color);
-    position: absolute;
-    display: none;
-    flex-wrap: wrap;
-    gap: 2vw;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 100%);
-    width: 80vw;
-}
-.ddmenu div {
-    padding: 2vw;
-}
-.ddmenu div:hover {
-    opacity: 0.5;
-}
-.dropdown:hover .ddmenu, .dropdown .button:focus ~ .ddmenu {
-    display: flex;
-}
-
 
 
 // ----------UNDERLINE----------
@@ -120,10 +98,6 @@
 }
 // -------MENU ICON-------END
 
-// -------LANGUAGE ICON---------
-
-
-
 @media screen and (max-width: 700px) {
     .topnav .menubuttons {
         float: none;
@@ -136,7 +110,6 @@
         top: 0;
         right: 0;
     }
-
     .topnav.responsive {
         height: 140px;
         background-color: var(--main-color-rgba);

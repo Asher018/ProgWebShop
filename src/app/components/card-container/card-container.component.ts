@@ -32,6 +32,8 @@ export class CardContainerComponent implements OnInit {
     if (parseInt(this.priceForm.value.priceMin) > 0 || parseInt(this.priceForm.value.priceMax) > 0) {
       this.items$ = this.fbservice.getItemsQuery(parseInt(this.priceForm.value.priceMin), parseInt(this.priceForm.value.priceMax))
       this.lastQueried = true;
+      let checkbox = document.getElementById('polo') as HTMLInputElement
+      checkbox.checked = false;
     }
     else if (this.lastQueried === true) {
       this.items$ = this.fbservice.getItems()
