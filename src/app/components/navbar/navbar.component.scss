@@ -1,5 +1,5 @@
 .topnav {
-    overflow:hidden;
+    //overflow:hidden;
     height: 70px;
     background-color: var(--main-color);
     transition: height 0.6s ease-in-out, background 0.6s ease-in-out,opacity 0.6s ease-in-out;
@@ -27,7 +27,6 @@
     transition: opacity 0.25s ease-in-out;
 }
 .menubuttons {
-    position: relative;
     float: left;
     color: #f2f2f2;
     text-decoration: none;
@@ -36,14 +35,36 @@
     align-items: center;
     cursor: pointer;
     padding: 0 20px 0 20px;
+    user-select: none;
 }
 .menubuttons.right {
     float: right;
 }
 .button {
-    //width: max-content;
     position: relative;
 }
+
+.ddmenu {
+    background-color: var(--main-color);
+    position: absolute;
+    display: none;
+    flex-wrap: wrap;
+    gap: 2vw;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    width: 80vw;
+}
+.ddmenu div {
+    padding: 2vw;
+}
+.ddmenu div:hover {
+    opacity: 0.5;
+}
+.dropdown:hover .ddmenu, .dropdown .button:focus ~ .ddmenu {
+    display: flex;
+}
+
 
 
 // ----------UNDERLINE----------
